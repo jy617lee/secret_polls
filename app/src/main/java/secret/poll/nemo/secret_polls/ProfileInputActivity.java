@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Created by jeeyu_000 on 2018-02-07.
@@ -48,7 +50,9 @@ public class ProfileInputActivity extends AppCompatActivity implements ProfileIn
                 break;
             }
             case ProfileInputCompleteInterface.INPUT_NAME : {
-                sendUserProfileToDB();
+                UserProfileClass user = UserProfileClass.getUserProfile();
+                sendUserProfileToDB(user);
+                saveUserProfileToSP(user);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -57,9 +61,15 @@ public class ProfileInputActivity extends AppCompatActivity implements ProfileIn
         ft.commit();
     }
 
-    public void sendUserProfileToDB(){
-        UserProfileClass user = UserProfileClass.getUserProfile();
+    public void sendUserProfileToDB(UserProfileClass user){
         String phoneNum = user.getPhoneNum();
         mDBRefUserProfile.child(phoneNum).setValue(user);
+    }
+
+    public void saveUserProfileToSP(UserProfileClass user){
+        SharedPreferenceManager mSPManager = SharedPreferenceManager.getSharedPreferenceManaer(getApplicationContext());
+        Gson gson = new GsonBuilder().create();
+        String userString = gson.toJson(user);
+        mSPManager.setValue("userProf", userString);
     }
 }

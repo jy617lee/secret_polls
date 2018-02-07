@@ -39,6 +39,10 @@ public class UserProfileClass {
         this.grade = grade;
     }
 
+    public void setUserProfile(UserProfileClass user){
+        userProfile = user;
+    }
+
     public String getPhoneNum() {
         return phoneNum;
     }
