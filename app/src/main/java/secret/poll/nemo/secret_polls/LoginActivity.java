@@ -8,9 +8,6 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -80,17 +77,12 @@ public class LoginActivity extends AppCompatActivity{
 //
 //    private boolean mVerificationInProgress = false;
 //    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-    private FirebaseDatabase mDB;
-    private DatabaseReference mDBRefUserProfile;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         ButterKnife.bind(this);
-
-        mDB = FirebaseDatabase.getInstance();
-        mDBRefUserProfile = mDB.getReference("USER_PROFILE");
 //        if (savedInstanceState != null) {
 //            onRestoreInstanceState(savedInstanceState);
 //        }
