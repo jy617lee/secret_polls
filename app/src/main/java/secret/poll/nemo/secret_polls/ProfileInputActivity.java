@@ -53,7 +53,7 @@ public class ProfileInputActivity extends AppCompatActivity implements ProfileIn
                 UserProfileClass user = UserProfileClass.getUserProfile();
                 sendUserProfileToDB(user);
                 saveUserProfileToSP(user);
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, TutorialActivity.class);
                 startActivity(intent);
                 finish();
             }

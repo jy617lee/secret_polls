@@ -24,10 +24,11 @@ public class SplashActivity extends AppCompatActivity {
             UserProfileClass userProfile = gson.fromJson(userString, UserProfileClass.class);
             UserProfileClass userProfileObj = UserProfileClass.getUserProfile();
             userProfileObj.setUserProfile(userProfile);
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, PollActivity.class);
         }else{
             intent = new Intent(this, LoginActivity.class);
         }
         startActivity(intent);
+        finish();
     }
 }
