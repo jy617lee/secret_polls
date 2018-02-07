@@ -8,6 +8,7 @@ public interface ProfileInputCompleteInterface {
     public final int SELECT_SCHOOL = 0;
     public final int SELECT_GRADE = 1;
     public final int SELECT_GENDER = 2;
+    public final int INPUT_NAME = 3;
 
     public void complete(int stage);
 }
