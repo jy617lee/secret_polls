@@ -30,7 +30,7 @@ import butterknife.OnClick;
  * Created by jeeyu_000 on 2018-02-07.
  */
 
-public class SchoolInputFragment extends Fragment {
+public class SchoolInputFragment extends Fragment{
     @BindView(R.id.school_list) RecyclerView mSchoolListView;
     private final String TAG = "SchoolInputFragment";
     private FirebaseDatabase mDB;
@@ -52,8 +52,11 @@ public class SchoolInputFragment extends Fragment {
             user.setmSchoolKind(selectedSchool.getKind());
 
             //다음으로 넘어간다
+            ProfileInputCompleteInterface completeInterface = (ProfileInputCompleteInterface) getContext();
+            completeInterface.complete(ProfileInputCompleteInterface.SELECT_SCHOOL);
         }
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -86,6 +89,7 @@ public class SchoolInputFragment extends Fragment {
         @Override
         public void onCancelled(DatabaseError databaseError) {}
     };
+
 
     public class SchoolAdapter extends RecyclerView.Adapter<SchoolAdapter.ViewHolder>{
         public class ViewHolder extends RecyclerView.ViewHolder{
@@ -151,4 +155,6 @@ public class SchoolInputFragment extends Fragment {
             view.setBackgroundColor(getContext().getColor(R.color.colorAccent));
         }
     }
+
+
 }
