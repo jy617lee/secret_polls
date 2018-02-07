@@ -1,17 +1,23 @@
 package secret.poll.nemo.secret_polls;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by jeeyu_000 on 2018-02-07.
  */
 
 public class ProfileInputActivity extends AppCompatActivity implements ProfileInputCompleteInterface{
+    private FirebaseDatabase mDB;
+    private DatabaseReference mDBRefUserProfile;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +26,10 @@ public class ProfileInputActivity extends AppCompatActivity implements ProfileIn
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.profile_input_fragment, new SchoolInputFragment());
         ft.commit();
-    }
 
+        mDB = FirebaseDatabase.getInstance();
+        mDBRefUserProfile = mDB.getReference("USER_PROFILE");
+    }
 
     @Override
     public void complete(int stage) {
@@ -40,10 +48,18 @@ public class ProfileInputActivity extends AppCompatActivity implements ProfileIn
                 break;
             }
             case ProfileInputCompleteInterface.INPUT_NAME : {
-                Toast.makeText(getApplicationContext(), "input complete", Toast.LENGTH_SHORT).show();
-//                sendUserProfileToDB();
+                sendUserProfileToDB();
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         }
         ft.commit();
+    }
+
+    public void sendUserProfileToDB(){
+        UserProfileClass user = UserProfileClass.getUserProfile();
+        String phoneNum = user.getPhoneNum();
+        mDBRefUserProfile.child(phoneNum).setValue(user);
     }
 }

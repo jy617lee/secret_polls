@@ -62,7 +62,7 @@ public class GradeInputFragment  extends Fragment implements View.OnClickListene
                 }else{
                     //유저 객체에 학년 정보 저장
                     UserProfileClass user = UserProfileClass.getUserProfile();
-                    user.setmGrade(mCurGrade);
+                    user.setGrade(mCurGrade);
 
                     //다음으로 넘어간다
                     ProfileInputCompleteInterface completeInterface = (ProfileInputCompleteInterface) getContext();

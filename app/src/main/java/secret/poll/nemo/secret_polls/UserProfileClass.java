@@ -5,38 +5,62 @@ package secret.poll.nemo.secret_polls;
  */
 
 public class UserProfileClass {
-    private String mPhoneNum;
-    private String mName;
-    private String mGender;
-    private String mSchoolKind;
-    private String mSchoolNum;
-    private int mGrade;
+    private String phoneNum;
+    private String name;
+    private String gender;
+    private String schoolKind;
+    private String schoolNum;
+    private int grade;
     private static UserProfileClass userProfile;
 
     public UserProfileClass(){}
 
-    public void setmPhoneNum(String mPhoneNum) {
-        this.mPhoneNum = mPhoneNum;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setmGender(String mGender) {
-        this.mGender = mGender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public void setmSchoolKind(String mSchoolKind) {
-        this.mSchoolKind = mSchoolKind;
+    public void setSchoolKind(String schoolKind) {
+        this.schoolKind = schoolKind;
     }
 
-    public void setmSchoolNum(String mSchoolNum) {
-        this.mSchoolNum = mSchoolNum;
+    public void setSchoolNum(String schoolNum) {
+        this.schoolNum = schoolNum;
     }
 
-    public void setmGrade(int mGrade) {
-        this.mGrade = mGrade;
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getSchoolKind() {
+        return schoolKind;
+    }
+
+    public String getSchoolNum() {
+        return schoolNum;
+    }
+
+    public int getGrade() {
+        return grade;
     }
 
     public static UserProfileClass getUserProfile(){

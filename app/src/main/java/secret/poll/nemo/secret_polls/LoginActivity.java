@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity{
         }else{
             //유저 인스턴스에 폰 번호를 저장하고 프로필 입력 페이지로 넘어간다
             UserProfileClass mUser = UserProfileClass.getUserProfile();
-            mUser.setmPhoneNum(phonenumber);
+            mUser.setPhoneNum(phonenumber);
 
             Intent intent = new Intent(this, ProfileInputActivity.class);
             startActivity(intent);

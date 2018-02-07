@@ -48,8 +48,8 @@ public class SchoolInputFragment extends Fragment{
             //유저 객체에 학교 정보 저장
             UserProfileClass user = UserProfileClass.getUserProfile();
             SchoolClass selectedSchool = mArrSchool.get(mCurSchoolIdx);
-            user.setmSchoolNum(selectedSchool.getIdx()+"");
-            user.setmSchoolKind(selectedSchool.getKind());
+            user.setSchoolNum(selectedSchool.getIdx()+"");
+            user.setSchoolKind(selectedSchool.getKind());
 
             //다음으로 넘어간다
             ProfileInputCompleteInterface completeInterface = (ProfileInputCompleteInterface) getContext();

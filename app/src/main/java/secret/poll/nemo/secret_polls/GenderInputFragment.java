@@ -43,7 +43,7 @@ public class GenderInputFragment extends Fragment {
         }else{
             //유저 객체에 성별 정보 저장
             UserProfileClass user = UserProfileClass.getUserProfile();
-            user.setmGender(mCurGender);
+            user.setGender(mCurGender);
 
             //다음으로 넘어간다
             ProfileInputCompleteInterface completeInterface = (ProfileInputCompleteInterface) getContext();

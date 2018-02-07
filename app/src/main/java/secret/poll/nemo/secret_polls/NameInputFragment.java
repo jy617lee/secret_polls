@@ -27,7 +27,7 @@ public class NameInputFragment extends Fragment {
         }else{
             //유저 객체에 이름 정보 저장
             UserProfileClass user = UserProfileClass.getUserProfile();
-            user.setmName(name);
+            user.setName(name);
 
             //다음으로 넘어간다
             ProfileInputCompleteInterface completeInterface = (ProfileInputCompleteInterface) getContext();
