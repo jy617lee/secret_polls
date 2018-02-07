@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "919706907614",
+    "firebase_url": "https://secret-polls-ef555.firebaseio.com",
+    "project_id": "secret-polls-ef555",
+    "storage_bucket": "secret-polls-ef555.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919706907614:android:67230662268c051d",
+        "android_client_info": {
+          "package_name": "secret.poll.nemo.secret_polls"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919706907614-lpi3sl05un81kjho0cu6t30hhd19lbm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "secret.poll.nemo.secret_polls",
+            "certificate_hash": "7070ee88e6cfcb49b89e6984a86f96e32f54a473"
+          }
+        },
+        {
+          "client_id": "919706907614-kovv2k8d9kvlhvm6bppujhq1hm7hnh0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrzztaV3LKWgJshtQO0V-gt5Madqf6xfo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919706907614-kovv2k8d9kvlhvm6bppujhq1hm7hnh0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
