@@ -97,6 +97,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mContactList = ContactList.getContactList(getContentResolver());
                     mContactNum = ContactList.getContactNum();
+                    startPoll(questionArr, mCurPollQuestionNum);
                     return;
                 }
                 Toast.makeText(getApplicationContext(), "전화번호부 권한 허용필수", Toast.LENGTH_SHORT).show();
@@ -136,7 +137,12 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                 questionArr.add(question);
             }
             mCurPollQuestionNum = 0;
-            startPoll(questionArr, mCurPollQuestionNum);
+
+            int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(),
+                    android.Manifest.permission.READ_CONTACTS);
+            if(permissionCheck == PackageManager.PERMISSION_GRANTED) {
+                startPoll(questionArr, mCurPollQuestionNum);
+            }
         }
 
         @Override
