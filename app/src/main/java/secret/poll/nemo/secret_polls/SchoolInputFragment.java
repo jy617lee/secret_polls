@@ -34,7 +34,7 @@ public class SchoolInputFragment extends Fragment{
     @BindView(R.id.school_list) RecyclerView mSchoolListView;
     private final String TAG = "SchoolInputFragment";
     private FirebaseDatabase mDB;
-    private DatabaseReference mDBRefUserProfile;
+    private DatabaseReference mDBRefSchoolList;
     private ArrayList<SchoolClass> mArrSchool = new ArrayList<SchoolClass>();
     private final View.OnClickListener mOnclickListener = new MyOnclickListener();
     private int mCurSchoolIdx = -1;
@@ -61,7 +61,7 @@ public class SchoolInputFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDB = FirebaseDatabase.getInstance();
-        mDBRefUserProfile = mDB.getReference("SCHOOL_LIST").child("KOREA");
+        mDBRefSchoolList = mDB.getReference("SCHOOL_LIST").child("KOREA");
         View view = inflater.inflate(R.layout.school_input_fragment, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -70,7 +70,7 @@ public class SchoolInputFragment extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mDBRefUserProfile.addListenerForSingleValueEvent(mSchoolDataListener);
+        mDBRefSchoolList.addListenerForSingleValueEvent(mSchoolDataListener);
     }
 
     private ValueEventListener mSchoolDataListener = new ValueEventListener() {

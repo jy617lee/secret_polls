@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/questionTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Poll Activity"/>
-</android.support.constraint.ConstraintLayout>
+        android:textAlignment="center"
+        android:textSize="25sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/answer_0"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_margin="1dp"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/answer_1"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/answer_0"
+            android:background="@color/colorPrimary"
+            android:layout_margin="1dp"/>
+        <TextView
+            android:id="@+id/answer_2"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/answer_0"
+            android:background="@color/colorPrimary"
+            android:layout_margin="1dp"/>
+        <TextView
+            android:id="@+id/answer_3"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/answer_0"
+            android:layout_toRightOf="@id/answer_2"
+            android:background="@color/colorPrimary"
+            android:layout_margin="1dp"/>
+    </RelativeLayout>
+</RelativeLayout>
