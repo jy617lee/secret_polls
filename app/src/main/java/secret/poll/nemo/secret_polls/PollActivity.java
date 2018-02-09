@@ -96,6 +96,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mContactList = ContactList.getContactList(getContentResolver());
+                    mContactNum = ContactList.getContactNum();
                     return;
                 }
                 Toast.makeText(getApplicationContext(), "전화번호부 권한 허용필수", Toast.LENGTH_SHORT).show();
@@ -153,7 +154,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     public void shuffleAnswer(){
         for(int i = 0; i < 4; i++){
             Random r = new Random();
-            int idxTemp = r.nextInt(mContactNum-1);
+            int idxTemp = r.nextInt(mContactNum);
             String name = mContactList[idxTemp][ContactList.NAME];
             idxForAnswers[i] = idxTemp;
             answerTxt[i].setText(name);
