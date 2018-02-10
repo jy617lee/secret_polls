@@ -20,6 +20,7 @@
         <activity android:name=".ProfileInputActivity"/>
         <activity android:name=".PollActivity"/>
         <activity android:name=".TutorialActivity"/>
+        <activity android:name=".HeartListActivity"/>
     </application>
 
 </manifest>

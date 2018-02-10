@@ -1,5 +1,6 @@
 package secret.poll.nemo.secret_polls;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +24,7 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jeeyu_000 on 2018-02-07.
@@ -34,6 +36,13 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.answer_1)    TextView mAnswer1;
     @BindView(R.id.answer_2)    TextView mAnswer2;
     @BindView(R.id.answer_3)    TextView mAnswer3;
+    @BindView(R.id.button_heart)    TextView mBtnHeart;
+    @OnClick(R.id.button_heart)
+    public void goButtonHeart(){
+        Intent intent = new Intent(this, HeartListActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     private final String TAG = "PollActivity";
     private int mCurPollListNum = -1;
@@ -69,6 +78,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         mAnswer1.setOnClickListener(this);
         mAnswer2.setOnClickListener(this);
         mAnswer3.setOnClickListener(this);
+        mBtnHeart.setActivated(false);
 
         answerTxt = new TextView[]{mAnswer0, mAnswer1, mAnswer2, mAnswer3};
         getContactListPermission();
@@ -217,6 +227,8 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         //다음 질문으로 넘어가기
         if(++mCurPollQuestionNum > MAX){
             Toast.makeText(getApplicationContext(), "퀴즈 끝", Toast.LENGTH_SHORT).show();
+            mBtnHeart.setVisibility(View.VISIBLE);
+            mBtnHeart.setActivated(true);
         }else{
             startPoll(questionArr, mCurPollQuestionNum);
         }
