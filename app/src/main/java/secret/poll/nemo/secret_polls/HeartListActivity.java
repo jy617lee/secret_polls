@@ -30,6 +30,7 @@ import butterknife.ButterKnife;
 
 public class HeartListActivity extends AppCompatActivity{
     @BindView(R.id.answer_list) RecyclerView mAnswerListView;
+    @BindView(R.id.answer_sum)  TextView mAnswerSum;
     private FirebaseDatabase mDB;
     private DatabaseReference mDBRefAnswerList;
     private DatabaseReference mDBRefUserProfile;
@@ -68,6 +69,7 @@ public class HeartListActivity extends AppCompatActivity{
                 pollResArr = new ArrayList<>(cnt);
                 answerArr = new ArrayList<>(cnt);
                 adapter = new AnswerAdapter(getApplicationContext(), answerArr);
+                mAnswerSum.setText(cnt+"");
                 mAnswerListView.setAdapter(adapter);
                 mAnswerListView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
