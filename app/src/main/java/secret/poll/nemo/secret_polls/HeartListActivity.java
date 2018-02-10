@@ -29,6 +29,8 @@ import secret.poll.nemo.secret_polls.UtillClass.AnswerClass;
 import secret.poll.nemo.secret_polls.UtillClass.PollResultClass;
 import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
 
+import static secret.poll.nemo.secret_polls.SplashActivity.getUserFromSharedPreference;
+
 /**
  * Created by jeeyu_000 on 2018-02-09.
  */
@@ -60,6 +62,9 @@ public class HeartListActivity extends AppCompatActivity{
 
         //유저 정보
         user = UserProfileClass.getUserProfile();
+        if(user.getPhoneNum() == null){
+            getUserFromSharedPreference(getApplicationContext());
+        }
         myPhoneNum = user.getPhoneNum();
 
         //DB 정보

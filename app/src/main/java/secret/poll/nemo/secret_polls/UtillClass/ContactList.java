@@ -3,6 +3,7 @@ package secret.poll.nemo.secret_polls.UtillClass;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.ContactsContract;
+import android.util.Log;
 
 /**
  * Created by jeeyu_000 on 2018-02-08.
@@ -48,16 +49,44 @@ public class ContactList {
 
                         pCur.close();
                     }
-                    if (phoneNum != null) {
+
+                    name = checkValidName(name);
+                    phoneNum = checkValidNumber(phoneNum);
+                    if (name != null && phoneNum != null) {
                         contactList[idx][NAME] = name;
                         contactList[idx][PHONE_NUM] = phoneNum;
                         idx++;
+                    }else{
+                        Log.d("TAG", "TAK");
                     }
                 }
                 //[END contact while]
+                contactNum = idx;
             }
         }
         return contactList;
+    }
+
+    public static String checkValidName(String name){
+       if(name == null || name.trim().equals("")){
+           return null;
+       }
+        return name;
+    }
+
+    public static String checkValidNumber(String phoneNum){
+        if(phoneNum == null || phoneNum.equals("") || phoneNum.length() < 6){
+            return null;
+        }
+
+        if(phoneNum.contains("-") || phoneNum.contains("*") || phoneNum.contains("+") || phoneNum.contains(" ")){
+            phoneNum = phoneNum.replace("_", "");
+            phoneNum = phoneNum.replace("*", "");
+            phoneNum = phoneNum.replace("+", "");
+            phoneNum = phoneNum.replace(" ", "");
+            phoneNum = phoneNum.trim();
+        }
+        return phoneNum;
     }
 
     public static int getContactNum(){

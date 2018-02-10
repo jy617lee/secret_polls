@@ -29,6 +29,8 @@ import secret.poll.nemo.secret_polls.UtillClass.ContactList;
 import secret.poll.nemo.secret_polls.UtillClass.PollResultClass;
 import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
 
+import static secret.poll.nemo.secret_polls.SplashActivity.getUserFromSharedPreference;
+
 /**
  * Created by jeeyu_000 on 2018-02-07.
  */
@@ -71,6 +73,9 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         user = UserProfileClass.getUserProfile();
+        if(user.getPhoneNum() == null){
+            getUserFromSharedPreference(getApplicationContext());
+        }
         myPhoneNum = user.getPhoneNum();
         mDB = FirebaseDatabase.getInstance();
         mDBRefUserCntQuestion = mDB.getReference("USER_CNT_QUESTION").child(user.getPhoneNum());
