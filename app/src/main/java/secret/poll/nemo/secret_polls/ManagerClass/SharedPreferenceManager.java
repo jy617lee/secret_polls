@@ -1,4 +1,4 @@
-package secret.poll.nemo.secret_polls;
+package secret.poll.nemo.secret_polls.ManagerClass;
 
 import android.content.Context;
 import android.content.SharedPreferences;

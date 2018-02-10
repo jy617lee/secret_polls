@@ -1,4 +1,4 @@
-package secret.poll.nemo.secret_polls;
+package secret.poll.nemo.secret_polls.UtillClass;
 
 import android.content.ContentResolver;
 import android.database.Cursor;

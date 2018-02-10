@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import secret.poll.nemo.secret_polls.ManagerClass.SharedPreferenceManager;
+import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override

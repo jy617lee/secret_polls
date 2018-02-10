@@ -1,4 +1,4 @@
-package secret.poll.nemo.secret_polls;
+package secret.poll.nemo.secret_polls.UtillClass;
 
 /**
  * Created by jeeyu_000 on 2018-02-07.

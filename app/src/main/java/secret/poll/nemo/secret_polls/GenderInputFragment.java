@@ -13,6 +13,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
 
 /**
  * Created by jeeyu_000 on 2018-02-07.

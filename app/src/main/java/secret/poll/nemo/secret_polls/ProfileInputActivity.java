@@ -12,6 +12,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import secret.poll.nemo.secret_polls.ManagerClass.SharedPreferenceManager;
+import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
+
 /**
  * Created by jeeyu_000 on 2018-02-07.
  */
