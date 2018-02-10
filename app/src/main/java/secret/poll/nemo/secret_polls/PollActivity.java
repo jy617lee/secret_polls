@@ -49,6 +49,15 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         finish();
     }
 
+    @OnClick(R.id.btn_shuffle)
+    public void shuffle(){
+        shuffleAnswer();
+    }
+
+    @OnClick(R.id.btn_skip)
+    public void skip(){
+        startPoll(questionArr, ++mCurPollQuestionNum);
+    }
     private final String TAG = "PollActivity";
     private int mCurPollListNum = -1;
     private int mCurPollQuestionNum = -1;
