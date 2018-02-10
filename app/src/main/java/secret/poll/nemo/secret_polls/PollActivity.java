@@ -41,7 +41,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.answer_3)    TextView mAnswer3;
     @BindView(R.id.button_heart)    TextView mBtnHeart;
     @OnClick(R.id.button_heart)
-    public void goButtonHeart(){
+    public void goHeartList(){
         Intent intent = new Intent(this, HeartListActivity.class);
         startActivity(intent);
         finish();
@@ -76,7 +76,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         mDBRefUserCntQuestion = mDB.getReference("USER_CNT_QUESTION").child(user.getPhoneNum());
         mDBRefQuestionList = mDB.getReference("QUESTION_LIST");
         mDBRefPollResult = mDB.getReference("POLL_RESULT");
-        getCurPollListNum();
+
         mAnswer0.setOnClickListener(this);
         mAnswer1.setOnClickListener(this);
         mAnswer2.setOnClickListener(this);
@@ -84,6 +84,12 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         mBtnHeart.setActivated(false);
 
         answerTxt = new TextView[]{mAnswer0, mAnswer1, mAnswer2, mAnswer3};
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getCurPollListNum();
         getContactListPermission();
     }
 
@@ -145,10 +151,16 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             questionArr = new ArrayList<String>(10);
+            if(dataSnapshot.getChildrenCount() == 0){
+                Toast.makeText(getApplicationContext(), "No More Question", Toast.LENGTH_SHORT).show();
+                goHeartList();
+                return;
+            }
             for(DataSnapshot questiondata : dataSnapshot.getChildren()){
                 String question = questiondata.getValue(String.class);
                 questionArr.add(question);
             }
+
             mCurPollQuestionNum = 0;
 
             int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(),
@@ -230,6 +242,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         //다음 질문으로 넘어가기
         if(++mCurPollQuestionNum > MAX){
             Toast.makeText(getApplicationContext(), "퀴즈 끝", Toast.LENGTH_SHORT).show();
+            mDBRefUserCntQuestion.setValue(mCurPollListNum+1);
             mBtnHeart.setVisibility(View.VISIBLE);
             mBtnHeart.setActivated(true);
         }else{

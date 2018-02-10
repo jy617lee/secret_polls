@@ -1,6 +1,7 @@
 package secret.poll.nemo.secret_polls;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import secret.poll.nemo.secret_polls.UtillClass.AnswerClass;
 import secret.poll.nemo.secret_polls.UtillClass.PollResultClass;
 import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
@@ -34,6 +36,13 @@ import secret.poll.nemo.secret_polls.UtillClass.UserProfileClass;
 public class HeartListActivity extends AppCompatActivity{
     @BindView(R.id.answer_list) RecyclerView mAnswerListView;
     @BindView(R.id.answer_sum)  TextView mAnswerSum;
+    @OnClick(R.id.button_poll)
+    public void goPollActivity(){
+        Intent intent = new Intent(this, PollActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private FirebaseDatabase mDB;
     private DatabaseReference mDBRefAnswerList;
     private DatabaseReference mDBRefUserProfile;
