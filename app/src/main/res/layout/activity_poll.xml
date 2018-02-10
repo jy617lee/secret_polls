@@ -3,22 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:id="@+id/button_heart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:layout_alignParentRight="true"
-        android:text="heart button"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        />
-    <TextView
         android:id="@+id/questionTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:layout_below="@id/button_heart"
         />
 
     <RelativeLayout

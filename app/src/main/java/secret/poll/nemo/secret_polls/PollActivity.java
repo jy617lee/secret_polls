@@ -41,13 +41,6 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.answer_1)    TextView mAnswer1;
     @BindView(R.id.answer_2)    TextView mAnswer2;
     @BindView(R.id.answer_3)    TextView mAnswer3;
-    @BindView(R.id.button_heart)    TextView mBtnHeart;
-    @OnClick(R.id.button_heart)
-    public void goHeartList(){
-        Intent intent = new Intent(this, HeartListActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     @OnClick(R.id.btn_shuffle)
     public void shuffle(){
@@ -95,7 +88,6 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         mAnswer1.setOnClickListener(this);
         mAnswer2.setOnClickListener(this);
         mAnswer3.setOnClickListener(this);
-        mBtnHeart.setActivated(false);
 
         answerTxt = new TextView[]{mAnswer0, mAnswer1, mAnswer2, mAnswer3};
     }
@@ -257,10 +249,15 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         if(++mCurPollQuestionNum > MAX){
             Toast.makeText(getApplicationContext(), "퀴즈 끝", Toast.LENGTH_SHORT).show();
             mDBRefUserCntQuestion.setValue(mCurPollListNum+1);
-            mBtnHeart.setVisibility(View.VISIBLE);
-            mBtnHeart.setActivated(true);
+            goHeartList();
         }else{
             startPoll(questionArr, mCurPollQuestionNum);
         }
+    }
+
+    public void goHeartList(){
+        Intent intent = new Intent(this, HeartListActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
