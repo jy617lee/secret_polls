@@ -47,6 +47,13 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         shuffleAnswer();
     }
 
+    @OnClick(R.id.btn_home)
+    public void goHeartList(){
+        Intent intent = new Intent(this, HeartListActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     @OnClick(R.id.btn_skip)
     public void skip(){
         startPoll(questionArr, ++mCurPollQuestionNum);
@@ -255,9 +262,5 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void goHeartList(){
-        Intent intent = new Intent(this, HeartListActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 }

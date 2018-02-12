@@ -38,7 +38,7 @@ import static secret.poll.nemo.secret_polls.SplashActivity.getUserFromSharedPref
 public class HeartListActivity extends AppCompatActivity{
     @BindView(R.id.answer_list) RecyclerView mAnswerListView;
     @BindView(R.id.answer_sum)  TextView mAnswerSum;
-    @OnClick(R.id.button_poll)
+    @OnClick(R.id.btn_poll)
     public void goPollActivity(){
         Intent intent = new Intent(this, PollActivity.class);
         startActivity(intent);

@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         if(userString != null){
             //유저 정보 객체로 가지고 있기
             getUserFromSharedPreference(getApplicationContext());
-            intent = new Intent(this, PollActivity.class);
+            intent = new Intent(this, HeartListActivity.class);
         }else{
             intent = new Intent(this, LoginActivity.class);
         }
